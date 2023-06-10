@@ -34,13 +34,43 @@ body {
   max-width: 1200px;
   /* максимальна ширина береться з макету */
   width: 100%;
-  padding: 0 15px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
 .timer {
+  position: relative;
+  overflow: hidden;
   background-image: linear-gradient(114.21deg, #232323 20.08%, #000000 96.12%),
     linear-gradient(114.21deg, #ffffff 20.08%, #dfe2e4 96.12%);
+}
+
+.timer::before {
+  content: "";
+  position: absolute;
+  background-image: url(./img/1mms.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 300px;
+  height: 900px;
+  left: -250px;
+  top: -440px;
+  left: 0;
+  top: 0;
+}
+
+.timer::after {
+  content: "";
+  position: absolute;
+  background-image: url(./img/1mms.svg);
+  background-size: contain;
+  width: 300px;
+  height: 900px;
+  background-repeat: no-repeat;
+  bottom: 0;
+  right: 0;
+  left: 1420px;
+  top: -12px;
 }
 .timer__inner {
   display: flex;
@@ -54,16 +84,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 100%;
   max-width: 821px;
   width: 100%;
   height: 821px;
-  background-image: radial-gradient(
-      271.01% 271.01% at 79.11% 17.6%,
-      rgba(255, 52, 7, 0) 0%,
-      rgba(250, 14, 14, 0.48) 100%
-    )
-    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  background-image: url(./img/Ellipse.svg);
+  background-repeat: no-repeat;
 }
 
 .blur {
@@ -71,16 +97,16 @@ body {
 }
 
 .timer__time {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .timer__text {
-    width: 700px;
-    font-size: 50px;
+  width: 700px;
+  font-size: 50px;
   text-align: center;
   background: linear-gradient(
     92.1deg,
@@ -104,7 +130,91 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-display: block;
-margin: 0 auto;
+  display: block;
+  margin: 0 auto;
   text-shadow: 0px 4px 29px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .timer__time {
+    font-size: 79px;
+  }
+  .timer__text {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 37px;
+  }
+  .timer__blur {
+    background-image: url(./img/Ellipse.svg);
+    background-repeat: no-repeat;
+    width: 480px;
+    height: 480px;
+  }
+  .timer__img {
+    max-width: 400px;
+  }
+  .timer {
+    font-weight: 900;
+    font-size: 79px;
+    line-height: 96px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .timer__text {
+    font-size: 20px;
+  }
+  .timer__time {
+    font-size: 40px;
+  }
+}
+
+/* about */
+
+.about {
+  height: 100vh;
+  background-image: linear-gradient(114.21deg, #232323 20.08%, #000000 96.12%),
+    linear-gradient(114.21deg, #ffffff 20.08%, #dfe2e4 96.12%);
+  background-repeat: no-repeat;
+}
+
+.about__title {
+  font-weight: 700;
+  font-size: 140px;
+  line-height: 171px;
+  color: #ffffff;
+}
+
+.about__subtitle {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  color: #ffffff;
+}
+
+.about__link {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  color: #ffffff;
+}
+
+.remains__text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.about__button {
+  max-width: 100px;
+  width: 100%;
+  height: 100px;
+  background: #f8c104;
+  border-radius: 195px;
+  border: none;
+  font-size: 25px;
+  line-height: 37px;
+  text-align: center;
+  color: #0d0d0d;
 }
